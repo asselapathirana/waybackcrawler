@@ -4,8 +4,6 @@ import trafilatura
 import gzip
 import charset_normalizer as chardet
 
-print ("ha")
-print(os.getcwd())
 ulist=set()
 for root, dirs, files in os.walk("../output/pages"):
     for file in files:
