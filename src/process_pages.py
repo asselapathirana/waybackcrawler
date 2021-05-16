@@ -4,8 +4,10 @@ import trafilatura
 import gzip
 import charset_normalizer as chardet
 
+import setup_dir
+
 ulist=set()
-for root, dirs, files in os.walk("../output/pages"):
+for root, dirs, files in os.walk(setup_dir.DIR_PAGES):
     for file in files:
         if file.endswith(".snapshot"):
             #print(os.path.join(root, file))
@@ -25,10 +27,10 @@ ulist=ulist #[2020] # ulist=ulist
 ct=0
 for date in ulist:
     print("DATE: {}".format(date))
-    with gzip.open("../output/processed/{}.gz".format(date),"wt", encoding='utf-8') as outf:
+    with gzip.open(setup_dir.DIR_PROC+"{}.gz".format(date),"wt", encoding='utf-8') as outf:
         alltext=""
         pattern = re.compile("^{}[0-9]+.snapshot$".format(date))        
-        for root, dirs, files in os.walk("../output/pages"):
+        for root, dirs, files in os.walk(setup_dir.DIR_PAGES):
             for file in files:
                 if pattern.search(file):
                     if ct > LIMIT:
