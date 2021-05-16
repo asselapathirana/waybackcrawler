@@ -4,7 +4,7 @@ DIR_PAGES='../output/pages/'
 DIR_KW   ='../output/keywords/'
 DIR_GR   ='../output/graphics/'
 DIR_PROC ='../output/processed/'
-
+MASKFILE="../input/mask.png"
 
 for dir_ in [DIR_PAGES, DIR_KW, DIR_GR, DIR_PROC]:
     pt=pathlib.Path(dir_)
